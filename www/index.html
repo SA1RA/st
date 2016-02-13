@@ -7,11 +7,11 @@
   
   <body>
   <script src="js/phaser.js"></script>
-
+  <script src="js/play.js"></script>
     <script>
       var game = new Phaser.Game(320,568);
-      console.log("Cause I shoot to thrill");
-
+      game.state.add('Play', DOG.Play);
+      game.state.start('Play');
     </script>
   </body>
 </html>
