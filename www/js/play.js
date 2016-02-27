@@ -31,7 +31,7 @@ st.Play.prototype = {
     this.obj.animations.play('blink',2,true);
 
     //player
-    this.player = this.add.sprite(100,500,'player');
+    this.player = this.add.sprite(100,400,'player');
     this.player.anchor.setTo(0.5, 0.5);
     this.player.animations.add('blink');
     this.player.animations.play('blink' ,2,true);
@@ -42,13 +42,10 @@ st.Play.prototype = {
 
   update: function () {
     if (this.cursors.left.isDown) {
-      this.player.x -= 10;
+      this.player.x -= 4;
     }
-    if (this.cursors.right.isDown) {
-      this.player.x += 10;
-    }
-    if (this.cursors.down.isDown) {
-      this.player.y += 10;
+    if (this.corsurs.right.isDown) {
+      this.player.x += 2;
     }
   }
 }
