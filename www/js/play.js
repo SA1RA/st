@@ -41,8 +41,10 @@ st.Play.prototype = {
   },
 
   update: function () {
-    if (this.obj.y =< 400) {
-      this.obj.y += 400;
+    this.obj.y += 10;
+  
+    if (this.obj.y > 400) {
+      this.obj.y = 10;
     }
 
     if (this.cursors.left.isDown) {
