@@ -38,15 +38,24 @@ st.Play.prototype = {
 
     //movment keys
     this.cursors = game.input.keyboard.createCursorKeys();
+    this.music.add('song', 'assests/audio/sts.mp3');
   },
 
   update: function () {
+    //falling
     this.obj.y += 10;
-  
     if (this.obj.y > 400) {
       this.obj.y = 10;
     }
 
+    //tracking
+    if (this.obj.x < this.player.x) {
+      this.obj.x -= 2;
+    }
+    if (this.obj.x > thix.player.x) {
+      this.obj.x += 2;
+    }
+    
     if (this.cursors.left.isDown) {
       this.player.x -= 4;
     }
