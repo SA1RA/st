@@ -34,17 +34,21 @@ st.Play.prototype = {
     this.player = this.add.sprite(100,400,'player');
     this.player.anchor.setTo(0.5, 0.5);
     this.player.animations.add('blink');
-    this.player.animations.play('blink' ,2,true);
+    this.player.animations.play('blink',2,true);
 
     //movment keys
     this.cursors = game.input.keyboard.createCursorKeys();
   },
 
   update: function () {
+    if (this.obj.y =< 400) {
+      this.obj.y += 400;
+    }
+
     if (this.cursors.left.isDown) {
       this.player.x -= 4;
     }
-    if (this.corsurs.right.isDown) {
+    if (this.cursors.right.isDown) {
       this.player.x += 2;
     }
   }
