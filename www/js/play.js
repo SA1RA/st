@@ -15,6 +15,7 @@ st.Play.prototype = {
   preload: function () {
     //audio load
     this.load.audio('ts', 'assets/audio/ts.mp3');
+    this.load.audio('jn', 'assets/audio/jn.mp3');
 
     //sprites
     this.load.image('background','assets/sprites/os.png');
@@ -24,7 +25,9 @@ st.Play.prototype = {
 
   create: function () {
     //audio start
-    this.startSound = this.game.add.audio('start');
+    this.startSound = this.game.add.audio('jn');
+    this.startSound.play();
+    this.startSound = this.game.add.audio('ts');
     this.startSound.play();
 
     //background
@@ -59,7 +62,7 @@ st.Play.prototype = {
     }
 
     //falling
-    this.obj.y += 6;
+    this.obj.y += 7;
     if (this.obj.y > 400) {
       this.obj.y = 10;
       this.obj.x = game.rnd.integerInRange(31,289);
@@ -75,10 +78,10 @@ st.Play.prototype = {
    
     //controls
     if (this.cursors.left.isDown) {
-      this.player.x -= 3;
+      this.player.x -= 4;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 3;
+      this.player.x += 4;
     }
   }
 }
