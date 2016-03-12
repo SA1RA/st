@@ -13,6 +13,10 @@ st.Play.prototype = {
   },
 
   preload: function () {
+    //game_screen
+    this.scale.pageAlignHorizontally = true;
+    this.scale.pageAlignVertically = true;
+
     //audio load
     this.load.audio('ts', 'assets/audio/ts.mp3');
     this.load.audio('jn', 'assets/audio/jn.mp3');
@@ -62,26 +66,26 @@ st.Play.prototype = {
     }
 
     //falling
-    this.obj.y += 7;
+    this.obj.y += 10;
     if (this.obj.y > 400) {
       this.obj.y = 10;
       this.obj.x = game.rnd.integerInRange(31,289);
     }
 
     //tracking
-    if (this.obj.x < this.player.x) {
-      this.obj.x += 1.3;
-    }
-    if (this.obj.x > this.player.x) {
-      this.obj.x -= 1.3;
-    }
+    //if (this.obj.x < this.player.x) {
+    //  this.obj.x += 1.3;
+    //}
+    //if (this.obj.x > this.player.x) {
+    //  this.obj.x -= 1.3;
+    //}
    
     //controls
     if (this.cursors.left.isDown) {
       this.player.x -= 4;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 4;
+      this.player.x += 2;
     }
   }
 }
