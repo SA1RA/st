@@ -28,6 +28,8 @@ st.Play.prototype = {
   },
 
   create: function () {
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     //audio start
     this.startSound = this.game.add.audio('jn');
     this.startSound.play();
@@ -50,6 +52,10 @@ st.Play.prototype = {
     this.player.anchor.setTo(0.5, 0.5);
     this.player.animations.add('blink');
     this.player.animations.play('blink',2,true);
+    game.physics.arcade.enable(this.player);
+    this.player.body.colliderWorldBounds = true;
+    this.player.body.bounce.setTo(0.3);
+    this.player.body.drag.setTo(3000);
 
     //movment keys
     this.cursors = game.input.keyboard.createCursorKeys();
@@ -58,12 +64,12 @@ st.Play.prototype = {
   update: function () {
 
     //boundaries
-    if (this.player.x < 1) {
-      this.player.x = 2;
-    }
-    if (this.player.x > 300) {
-      this.player.x = 299;
-    }
+    //if (this.player.x < 1) {
+    //  this.player.x = 2;
+    //}
+    //if (this.player.x > 300) {
+    //  this.player.x = 299;
+    //}
 
     //falling
     this.obj.y += 10;
@@ -73,19 +79,19 @@ st.Play.prototype = {
     }
 
     //tracking
-    //if (this.obj.x < this.player.x) {
-    //  this.obj.x += 1.3;
-    //}
-    //if (this.obj.x > this.player.x) {
-    //  this.obj.x -= 1.3;
-    //}
+    if (this.obj.x < this.player.x) {
+      this.obj.x += 5;
+    }
+    if (this.obj.x > this.player.x) {
+      this.obj.x -= 5;
+    }
    
     //controls
     if (this.cursors.left.isDown) {
-      this.player.x -= 4;
+      this.player.body.velocity.x = -200;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 2;
+      this.player.body.velocity.x = 200;
     }
   }
 }
