@@ -63,6 +63,9 @@ st.Play.prototype = {
 
   update: function () {
 
+    //collider
+    game.physics.arcade.collide(this.player,this.obj,this.handleCollision);
+
     //boundaries
     //if (this.player.x < 1) {
     //  this.player.x = 2;
@@ -74,16 +77,16 @@ st.Play.prototype = {
     //falling
     this.obj.y += 10;
     if (this.obj.y > 400) {
-      this.obj.y = 10;
+      //this.obj.y = 10;
       this.obj.x = game.rnd.integerInRange(31,289);
     }
 
     //tracking
-    if (this.obj.x < this.player.x) {
-      this.obj.x += 5;
-    }
-    if (this.obj.x > this.player.x) {
-      this.obj.x -= 5;
+    //if (this.obj.x < this.player.x) {
+    //  this.obj.x += 5;
+    //}
+    //if (this.obj.x > this.player.x) {
+    //  this.obj.x -= 5;
     }
    
     //controls
